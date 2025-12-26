@@ -1,0 +1,82 @@
+.quick-cut-panel {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quick-cut-panel .ant-card-head {
+  background: linear-gradient(135deg, #f5f7ff 0%, #f0f2ff 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.mode-selection .ant-btn-group {
+  display: flex;
+}
+
+.mode-selection .ant-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.quick-actions .ant-space-compact {
+  display: flex;
+}
+
+.quick-actions .ant-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.cut-button {
+  height: 44px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1890ff, #096dd9);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.cut-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+.processing-info {
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid #1890ff;
+}
+
+.info-icon {
+  color: #1890ff;
+}
+
+.info-text {
+  font-size: 12px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .quick-cut-panel {
+    margin: 8px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

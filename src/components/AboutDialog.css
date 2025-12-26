@@ -1,0 +1,223 @@
+.about-dialog .ant-modal-content {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.about-dialog .ant-modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-bottom: none;
+  padding: 20px 24px;
+}
+
+.about-dialog .ant-modal-title {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.about-content {
+  padding: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* 品牌头图 */
+.brand-header {
+  padding: 24px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+  text-align: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.app-logo {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #1890ff, #52c41a);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.app-info {
+  text-align: left;
+}
+
+.app-title {
+  margin: 0 !important;
+  background: linear-gradient(135deg, #1890ff, #52c41a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-subtitle {
+  color: #666;
+  font-size: 14px;
+}
+
+.version-tags {
+  margin-top: 12px;
+}
+
+/* 特性卡片 */
+.feature-card {
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: #1890ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  color: #1890ff;
+}
+
+/* 技术标签 */
+.tech-section {
+  padding: 0 24px 16px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tech-tag {
+  background: #f0f7ff;
+  border: 1px solid #d6e4ff;
+  color: #1890ff;
+  border-radius: 16px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+/* 版本信息 */
+.version-section {
+  padding: 0 24px 16px;
+}
+
+.version-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+/* 团队卡片 */
+.team-section {
+  padding: 0 24px 16px;
+}
+
+.team-card {
+  border: 1px solid #f0f0f0;
+  width: 100%;
+}
+
+/* 版权信息 */
+.copyright-section {
+  padding: 0 24px 16px;
+}
+
+/* 联系信息 */
+.contact-section {
+  padding: 0 24px 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.contact-link {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+/* 致谢部分 */
+.acknowledgement {
+  padding: 16px 24px 24px;
+}
+
+.acknowledgement-card {
+  background: linear-gradient(135deg, #fff7e6, #fff2e8);
+  border: 1px solid #ffd591;
+}
+
+.heart-icon {
+  color: #ff4d4f;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .about-dialog {
+    width: 95% !important;
+    margin: 10px;
+  }
+  
+  .logo-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .app-info {
+    text-align: center;
+  }
+  
+  .tech-tags {
+    justify-content: center;
+  }
+  
+  .brand-header,
+  .features-section,
+  .tech-section,
+  .version-section,
+  .team-section,
+  .copyright-section,
+  .contact-section {
+    padding: 16px;
+  }
+}
+
+/* 滚动条样式 */
+.about-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.about-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.about-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

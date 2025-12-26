@@ -1,0 +1,148 @@
+.export-panel {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.export-panel .ant-card-head {
+  background: linear-gradient(135deg, #f6ffed 0%, #f0fff3 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+.export-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.placeholder-icon {
+  color: #d9d9d9;
+  margin-bottom: 16px;
+}
+
+/* 平台预设 */
+.platform-presets .ant-space-compact {
+  display: flex;
+}
+
+.platform-presets .ant-btn {
+  flex: 1;
+  font-size: 12px;
+  padding: 4px 8px;
+  height: auto;
+}
+
+/* 进度显示 */
+.export-progress {
+  padding: 16px;
+  background: #f0f8ff;
+  border-radius: 8px;
+  border-left: 4px solid #1890ff;
+}
+
+.export-progress .ant-progress-text {
+  font-size: 12px;
+}
+
+/* 高级设置 */
+.advanced-settings {
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+}
+
+.advanced-settings .ant-switch {
+  min-width: 80px;
+}
+
+/* 文件信息 */
+.file-info {
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-item .ant-typography {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* 导出按钮 */
+.export-button {
+  height: 44px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #52c41a, #73d13d);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.export-button:hover:not(.ant-btn-loading) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.3);
+}
+
+/* 提示信息 */
+.export-tips {
+  padding: 8px 12px;
+  background: #f6ffed;
+  border-radius: 6px;
+  border: 1px solid #b7eb8f;
+}
+
+.tip-icon {
+  color: #52c41a;
+}
+
+.tip-text {
+  font-size: 12px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .export-panel {
+    margin: 8px;
+  }
+  
+  .platform-presets .ant-btn {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+
+/* 动画效果 */
+.export-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.export-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.export-button:hover::before {
+  left: 100%;
+}

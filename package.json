@@ -1,0 +1,351 @@
+{
+  "name": "ez-cut",
+  "version": "1.0.0",
+  "description": "EZ CUT - WSK-Lab 出品的智能视频剪辑软件，简单易用的无损视频切割工具",
+  "main": "out/main/index.js",
+  "homepage": "https://github.com/wsk-lab/ez-cut#readme",
+  "type": "module",
+  "author": {
+    "name": "WSK-Lab",
+    "email": "contact@wsk-lab.com",
+    "url": "https://wsk-lab.com"
+  },
+  "contributors": [
+    "WSK-Lab Team <contact@wsk-lab.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wsk-lab/ez-cut.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wsk-lab/ez-cut/issues"
+  },
+  "keywords": [
+    "video",
+    "editor",
+    "cut",
+    "ffmpeg",
+    "electron",
+    "react",
+    "typescript",
+    "wsk-lab",
+    "china",
+    "无损剪辑",
+    "视频剪辑",
+    "视频切割",
+    "video-cutter",
+    "video-editor"
+  ],
+  "categories": [
+    "Video",
+    "Education"
+  ],
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "type-check": "tsc --noEmit",
+    "build:renderer": "vite build",
+    "build:main": "electron-vite build --mode main",
+    "build:preload": "electron-vite build --mode preload",
+    "electron:dev": "vite build && electron-vite dev",
+    "electron:build": "electron-vite build && electron-builder",
+    "build:win": "npm run electron:build -- --win",
+    "build:win:x64": "npm run electron:build -- --win --x64",
+    "build:win:ia32": "npm run electron:build -- --win --ia32",
+    "build:mac": "npm run electron:build -- --mac",
+    "build:mac:x64": "npm run electron:build -- --mac --x64",
+    "build:mac:arm64": "npm run electron:build -- --mac --arm64",
+    "build:linux": "npm run electron:build -- --linux",
+    "build:linux:x64": "npm run electron:build -- --linux --x64",
+    "build:all": "npm run electron:build -- --win --mac --linux",
+    "build:portable": "npm run electron:build -- --win --config.portable",
+    "build:installer": "npm run electron:build -- --win --config.nsis",
+    "build:dmg": "npm run electron:build -- --mac --config.dmg",
+    "build:appimage": "npm run electron:build -- --linux --config.appimage",
+    "build:deb": "npm run electron:build -- --linux --config.deb",
+    "pack": "npm run electron:build -- --dir",
+    "dist": "npm run electron:build",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "lint:strict": "eslint src --ext .ts,.tsx --max-warnings=0",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "playwright test",
+    "clean": "rimraf dist dist-electron release",
+    "clean:all": "npm run clean && rimraf node_modules package-lock.json",
+    "clean:install": "npm run clean:all && npm install",
+    "postinstall": "electron-builder install-app-deps",
+    "prebuild": "npm run type-check && npm run lint",
+    "prepack": "npm run build",
+    "prerelease": "npm run test && npm run build:all",
+    "release": "npm run build:all && node scripts/release.js",
+    "release:patch": "npm version patch && npm run release",
+    "release:minor": "npm version minor && npm run release",
+    "release:major": "npm version major && npm run release",
+    "publish": "npm run release && node scripts/publish.js",
+    "publish:github": "npm run release && gh release create",
+    "start": "npm run dev",
+    "debug": "ELECTRON_IS_DEV=true npm run dev",
+    "profile": "ELECTRON_ENABLE_LOGGING=true npm run dev",
+    "analyze": "npm run build && npx electron-builder --dir --analyze",
+    "size": "npm run build && npx bundlemon",
+    "deps:check": "npx npm-check -u",
+    "deps:update": "npx npm-check -u && npm install",
+    "audit:fix": "npm audit fix",
+    "audit:ci": "npm audit --audit-level moderate",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "chromatic": "npx chromatic --project-token=<your-project-token>"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "antd": "^5.12.8",
+    "@ant-design/icons": "^5.3.7",
+    "@ant-design/cssinjs": "^1.18.2",
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@ffmpeg/util": "^0.12.1",
+    "zustand": "^4.5.2",
+    "immer": "^10.0.3",
+    "lucide-react": "^0.363.0",
+    "classnames": "^2.3.2",
+    "lodash-es": "^4.17.21",
+    "date-fns": "^3.6.0",
+    "jszip": "^3.10.1",
+    "file-saver": "^2.0.5",
+    "uuid": "^9.0.1",
+    "crypto-js": "^4.2.0",
+    "qrcode": "^1.5.3"
+  },
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "electron-vite": "^2.0.0",
+    "vite": "^5.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/node": "^20.11.24",
+    "@types/lodash-es": "^4.17.12",
+    "@types/uuid": "^9.0.7",
+    "@types/qrcode": "^1.5.5",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.4",
+    "@types/jest": "^29.5.11",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/user-event": "^14.5.2",
+    "@playwright/test": "^1.40.1",
+    "rimraf": "^5.0.5",
+    "chalk": "^5.3.0",
+    "inquirer": "^8.2.6",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "minimist": "^1.2.8",
+    "semver": "^7.6.0",
+    "simple-git": "^3.27.0",
+    "@storybook/react": "^7.6.10",
+    "@storybook/addon-essentials": "^7.6.10",
+    "@storybook/addon-interactions": "^7.6.10",
+    "@storybook/addon-links": "^7.6.10",
+    "@storybook/blocks": "^7.6.10",
+    "@storybook/test-runner": "^0.18.0",
+    "@chromatic-com/storybook": "^1.6.0",
+    "bundlemon": "^3.1.0",
+    "npm-check": "^6.0.1",
+    "webpack-bundle-analyzer": "^4.10.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "build": {
+    "appId": "com.wsk-lab.ez-cut",
+    "productName": "EZ CUT",
+    "copyright": "Copyright © 2024 WSK-Lab",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "dist-react/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "build/icons",
+        "to": "icons"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.video",
+      "icon": "build/icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "darkModeSupport": true,
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "msi",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "publisherName": "WSK-Lab",
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "EZ CUT"
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "snap",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Video",
+      "desktop": {
+        "Name": "EZ CUT",
+        "Comment": "智能视频剪辑软件",
+        "Categories": "Video;AudioVideo;",
+        "Keywords": "video;editor;cut;ffmpeg;"
+      }
+    },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    }
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "ez_cut"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "// 注释": "以下字段用于优化包管理和构建性能",
+  "volta": {
+    "node": "18.17.0",
+    "npm": "9.6.7"
+  },
+  "packageManager": "npm@9.6.7",
+  "resolutions": {
+    "**/electron": "^28.1.0"
+  }
+}

@@ -1,0 +1,287 @@
+.timeline-container {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+}
+
+/* 播放控制栏 */
+.playback-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.play-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1890ff;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button:hover {
+  background: #40a9ff;
+  transform: scale(1.05);
+}
+
+.time-display {
+  font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  min-width: 100px;
+}
+
+/* 主时间轴 */
+.timeline-main {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.timeline-track {
+  position: relative;
+  height: 60px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 20px;
+  overflow: hidden;
+}
+
+.timeline-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #e8f4ff, #f0f7ff);
+}
+
+.clip-region {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #bae7ff, #91d5ff);
+  border: 2px solid #1890ff;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* 播放指针 */
+.playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.playhead-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ff4d4f;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.playhead-dot {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #ff4d4f;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 标记点 */
+.marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
+.start-marker {
+  background: #52c41a;
+}
+
+.start-marker::before {
+  content: '开始';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #52c41a;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.end-marker {
+  background: #ff4d4f;
+}
+
+.end-marker::before {
+  content: '结束';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4d4f;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Slider 样式 */
+.timeline-slider {
+  margin: 8px 20px 0;
+}
+
+.timeline-slider .ant-slider-rail {
+  background-color: transparent;
+  height: 0;
+}
+
+.timeline-slider .ant-slider-track {
+  background-color: transparent;
+  height: 0;
+}
+
+.timeline-slider .ant-slider-handle {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #1890ff;
+  background: white;
+  margin-top: -2px;
+}
+
+.timeline-slider .ant-slider-handle:focus {
+  box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.2);
+}
+
+/* 时间刻度 */
+.time-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15px;
+  position: relative;
+}
+
+.time-tick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tick-line {
+  width: 1px;
+  height: 6px;
+  background: #d9d9d9;
+  margin-bottom: 4px;
+}
+
+.tick-label {
+  font-size: 10px;
+  color: #666;
+  transform: translateX(-50%);
+  margin-left: 50%;
+}
+
+/* 剪辑信息 */
+.clip-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 8px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+.duration-badge {
+  background: #1890ff;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* 占位符 */
+.timeline-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  color: #999;
+  font-style: italic;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 12px;
+    margin: 8px;
+  }
+  
+  .playback-controls {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .timeline-track {
+    height: 40px;
+    margin: 0 10px;
+  }
+  
+  .time-ticks {
+    margin: 0 5px;
+  }
+  
+  .tick-label {
+    font-size: 8px;
+  }
+}
+
+/* 动画效果 */
+.clip-region {
+  animation: region-pulse 2s ease-in-out infinite;
+}
+
+@keyframes region-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.playhead-dot {
+  animation: bounce 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(-2px); }
+}
